@@ -28,7 +28,7 @@ def index():
     lineas=tokenizer.tokenize(text)
     words = nltk.word_tokenize(text)
     week= u' '.join(words[7:11])
-    linea1= u' '.join(lineas[8:10]+[', according to government data for the']+week)
+    linea1= u' '.join(lineas[8:10]+[', according to government data for the'])
     linea2= u' '.join(lineas[4:6])
     linea3= u' '.join(lineas[10:11]+lineas[12:13])
     linea4=u' '.join(lineas[1:2])
