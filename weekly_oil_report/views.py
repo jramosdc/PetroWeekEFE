@@ -5,7 +5,6 @@ En este archivo se encuentran las vistas de la aplicación.
 """
 
 # Modules ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-import gspread
 import nltk.data
 from flask import render_template
 from flask import request
