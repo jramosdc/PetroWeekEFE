@@ -1,1 +1,1 @@
-web: gunicorn weekly_employment_report:app
+web: gunicorn weekly_oil_report:app
