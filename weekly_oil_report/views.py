@@ -24,9 +24,7 @@ def index():
     if request.method == 'GET':
         return render_template('show.html', text=text)
 
-   # Autorizar
-    gc = gspread.authorize(SignedJwtAssertionCredentials(app.config['GS_AUTH']['client_email'],app.config['GS_AUTH']['private_key'].encode(),['https://spreadsheets.google.com/feeds']))
-
+  
     # Procesar
     tokenizer = nltk.data.load('nltk:tokenizers/punkt/english.pickle')
     lineas=tokenizer.tokenize(text)
