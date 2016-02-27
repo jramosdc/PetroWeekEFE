@@ -52,13 +52,14 @@ def index():
     wtidate = worksheet3.acell('A2').value
     wtiprice = worksheet3.acell('D2').value
     wtivariation = worksheet3.acell('E2').value
-    linea5 = u'The total figure for oil reserves, including the Strategic Reserves, was {}'.format(totalreservas)
-
-
+    linea5 = u'The total figure for oil reserves, including the Strategic Reserves, {} a total of {}, a {} percent change versus the previous week'.format(verb,totalreservas,reservaschange)
+    linea6 = u'Right now, the price of the WTI Oil for {} is trading at {}, a change of {} cents'.format(wtidate,wtiprice,wtivariation)
     return render_template('show.html', **dict(
         linea1=linea1,
         linea2=linea2,
         linea3=linea3,
-        linea4=linea4
+        linea4=linea4,
+        linea5 = linea5,
+        linea6 = linea6
     ))
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
