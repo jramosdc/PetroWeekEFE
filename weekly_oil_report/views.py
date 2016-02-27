@@ -18,7 +18,7 @@ from . import helpers
 # Views ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    text = helpers.convert('http://ir.eia.gov/wpsr/wpsrsummary.pdf')
+    text = helpers.convert('http://ir.eia.gov/wpsr/wpsrsummary.pdf').decode('unicode_escape').encode('ascii','ignore')
 
     if request.method == 'GET':
         return render_template('show.html', text=text)
@@ -27,11 +27,11 @@ def index():
     tokenizer = nltk.data.load('nltk:tokenizers/punkt/english.pickle')
     lineas=tokenizer.tokenize(text)
     words = nltk.word_tokenize(text)
-    week= u' '.join(words[7:11])
-    linea1= u' '.join(lineas[8:10]+[', according to government data for the'])
-    linea2= u' '.join(lineas[4:6])
-    linea3= u' '.join(lineas[10:11]+lineas[12:13])
-    linea4=u' '.join(lineas[1:2])
+    week= u' '.join(words[7:11]).decode('unicode_escape').encode('ascii','ignore')
+    linea1= u' '.join(lineas[8:10]+[', according to government data for the']).decode('unicode_escape').encode('ascii','ignore')
+    linea2= u' '.join(lineas[4:6]).decode('unicode_escape').encode('ascii','ignore')
+    linea3= u' '.join(lineas[10:11]+lineas[12:13]).decode('unicode_escape').encode('ascii','ignore')
+    linea4=u' '.join(lineas[1:2]).decode('unicode_escape').encode('ascii','ignore')
 
     return render_template('show.html', **dict(
         linea1=linea1,
