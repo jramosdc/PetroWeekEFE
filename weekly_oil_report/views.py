@@ -5,11 +5,11 @@ En este archivo se encuentran las vistas de la aplicación.
 """
 
 # Modules ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-##import gspread
+import gspread
 import nltk.data
 from flask import render_template
 from flask import request
-##from oauth2client.client import SignedJwtAssertionCredentials
+from oauth2client.client import SignedJwtAssertionCredentials
 
 from . import app
 from . import helpers
@@ -24,6 +24,12 @@ def index():
     if request.method == 'GET':
         return render_template('show.html', text=text)
 
+    # Autorizar
+    gc = gspread.authorize(SignedJwtAssertionCredentials(
+        app.config['GS_AUTH']['client_email'],
+        app.config['GS_AUTH']['private_key'].encode(),
+        ['https://spreadsheets.google.com/feeds']
+    ))
   
     # Procesar
     tokenizer = nltk.data.load('nltk:tokenizers/punkt/english.pickle')
@@ -34,6 +40,20 @@ def index():
     linea2= u' '.join(lineas[4:6]).decode('unicode_escape').encode('ascii','ignore')
     linea3= u' '.join(lineas[10:11]+lineas[12:13]).decode('unicode_escape').encode('ascii','ignore')
     linea4=u' '.join(lineas[1:2]).decode('unicode_escape').encode('ascii','ignore')
+
+    # Obtener datos de desempleo de googlesheet
+    sht1 = gc.open_by_key(app.config['SPREADSHEET_ID'])
+    worksheet1 = sht1.get_worksheet(0)
+    worksheet2 = sht1.get_worksheet(1)
+    worksheet3 = sht1.get_worksheet(2)
+    totalreservas = worksheet1.acell('B19').value
+    reservaschange = worksheet1.acell('E19').value
+    verb = worksheet2.acell('A1').value
+    wtidate = worksheet3.acell('A2').value
+    wtiprice = worksheet3.acell('D2').value
+    wtivariation = worksheet3.acell('E2').value
+    linea5 = u'The total figure for oil reserves, including the Strategic Reserves, was {}'.format(totalreservas)
+
 
     return render_template('show.html', **dict(
         linea1=linea1,
