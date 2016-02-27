@@ -10,6 +10,8 @@ import nltk.data
 from flask import render_template
 from flask import request
 from oauth2client.client import SignedJwtAssertionCredentials
+from datetime import datetime
+import calendar
 
 from . import app
 from . import helpers
@@ -50,10 +52,12 @@ def index():
     reservaschange = worksheet1.acell('E19').value
     verb = worksheet2.acell('A1').value
     wtidate = worksheet3.acell('A2').value
+    mydate = datetime.strptime(wtidate,'%m/%d/%Y')
+    month = calendar.month_name[mydate.month]
     wtiprice = worksheet3.acell('D2').value
     wtivariation = worksheet3.acell('E2').value
     linea5 = u'The total figure for oil reserves, including the Strategic Reserves, {} a total of {}, a {} percent change versus the previous week'.format(verb,totalreservas,reservaschange)
-    linea6 = u'Right now, the price of the WTI Oil for {} is trading at {} dollars, a change of {} cents'.format(wtidate,wtiprice,wtivariation)
+    linea6 = u'Right now, the price of the WTI Oil for {} is trading at {} dollars, a change of {} cents'.format(month,wtiprice,wtivariation)
     return render_template('show.html', **dict(
         linea1=linea1,
         linea2=linea2,
