@@ -12,7 +12,6 @@ DEBUG = False
 # ++++++++++++++++++++++++++++++++++++++
 # ++++++++++++++++++++++++++++++++++++++
 GS_AUTH = {
-  {
   "type": "service_account",
   "project_id": "new-api-1203",
   "private_key_id": "6c92e16a2383ffb2a75a8f15c6a4576550dc1ae7",
@@ -23,8 +22,6 @@ GS_AUTH = {
   "token_uri": "https://accounts.google.com/o/oauth2/token",
   "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
   "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/new-api-1203%40appspot.gserviceaccount.com"
-}
-
 }
 
 SPREADSHEET_ID = '1XwtSVnvikI3EzBKVoPfFsxMCaH0H-Un54DUiJc2CBK4'
