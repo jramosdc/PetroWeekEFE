@@ -5,10 +5,11 @@ En este archivo se encuentran las vistas de la aplicación.
 """
 
 # Modules ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+import gspread
 import nltk.data
 from flask import render_template
 from flask import request
-##from oauth2client.client import SignedJwtAssertionCredentials
+from oauth2client.client import SignedJwtAssertionCredentials
 
 from . import app
 from . import helpers
@@ -23,12 +24,15 @@ def index():
     if request.method == 'GET':
         return render_template('show.html', text=text)
 
+   # Autorizar
+    gc = gspread.authorize(SignedJwtAssertionCredentials(app.config['GS_AUTH']['client_email'],app.config['GS_AUTH']['private_key'].encode(),['https://spreadsheets.google.com/feeds']))
+
     # Procesar
     tokenizer = nltk.data.load('nltk:tokenizers/punkt/english.pickle')
     lineas=tokenizer.tokenize(text)
     words = nltk.word_tokenize(text)
     week= u' '.join(words[7:11]).decode('unicode_escape').encode('ascii','ignore')
-    linea1= u' '.join(lineas[8:10]+[', according to government data for the']).decode('unicode_escape').encode('ascii','ignore')
+    linea1= u' '.join(lineas[8:10]+[', according to government data for the']+week).decode('unicode_escape').encode('ascii','ignore')
     linea2= u' '.join(lineas[4:6]).decode('unicode_escape').encode('ascii','ignore')
     linea3= u' '.join(lineas[10:11]+lineas[12:13]).decode('unicode_escape').encode('ascii','ignore')
     linea4=u' '.join(lineas[1:2]).decode('unicode_escape').encode('ascii','ignore')
