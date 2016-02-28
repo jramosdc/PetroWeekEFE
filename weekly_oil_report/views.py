@@ -49,7 +49,7 @@ def index():
     worksheet2 = sht1.get_worksheet(1)
     worksheet3 = sht1.get_worksheet(2)
     totalreservas = worksheet1.acell('B19').value
-    totalreservasfino = '{:,}'.format(totalreservas)
+    totalreservasfino = '{:,}'.format(float(totalreservas))
     reservaschange = worksheet1.acell('E19').value
     verb = worksheet2.acell('A1').value
     wtidate = worksheet3.acell('A2').value
