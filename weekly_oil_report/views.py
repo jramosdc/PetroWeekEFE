@@ -38,7 +38,7 @@ def index():
     lineas=tokenizer.tokenize(text)
     words = nltk.word_tokenize(text)
     week= u' '.join(words[7:11]).decode('unicode_escape').encode('ascii','ignore')
-    linea1= u' '.join(lineas[8:10]+[', according to government data for the']+week).decode('unicode_escape').encode('ascii','ignore')
+    linea1= u' '.join(lineas[8:10]+[', according to government data for the']).decode('unicode_escape').encode('ascii','ignore')+week
     linea2= u' '.join(lineas[4:6]).decode('unicode_escape').encode('ascii','ignore')
     linea3= u' '.join(lineas[10:11]+lineas[12:13]).decode('unicode_escape').encode('ascii','ignore')
     linea4=u' '.join(lineas[1:2]).decode('unicode_escape').encode('ascii','ignore')
