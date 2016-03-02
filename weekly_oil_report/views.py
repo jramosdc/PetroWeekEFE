@@ -41,13 +41,14 @@ def index():
     linea1= u' '.join(lineas[8:10]+[', according to government data for the ']).decode('unicode_escape').encode('ascii','ignore')+week
     linea2= u' '.join(lineas[4:6]).decode('unicode_escape').encode('ascii','ignore')
     linea3= u' '.join(lineas[10:11]+lineas[12:13]).decode('unicode_escape').encode('ascii','ignore')
-    linea4=u' '.join(lineas[1:2]).decode('unicode_escape').encode('ascii','ignore')
+    linea4=u' '.join(lineas[1:2]).decode('unicode_escape').encode('ascii','ignore')+calefaccion+u'millones'
 
     # Obtener datos de desempleo de googlesheet
     sht1 = gc.open_by_key(app.config['SPREADSHEET_ID'])
     worksheet1 = sht1.get_worksheet(0)
     worksheet2 = sht1.get_worksheet(1)
     worksheet3 = sht1.get_worksheet(2)
+    calefaccion = worksheet1.acell('B11').value
     totalreservas = worksheet1.acell('B19').value
     totalreservasfino = '{:,}'.format(float(totalreservas))
     reservaschange = worksheet1.acell('E19').value
