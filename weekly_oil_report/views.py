@@ -41,7 +41,7 @@ def index():
     linea1= u' '.join(lineas[8:10]+[', according to government data for the ']).decode('unicode_escape').encode('ascii','ignore')+week
     linea2= u' '.join(lineas[4:6]).decode('unicode_escape').encode('ascii','ignore')
     linea3= u' '.join(lineas[10:11]+lineas[12:13]).decode('unicode_escape').encode('ascii','ignore')
-    linea4=u' '.join(lineas[1:2]).decode('unicode_escape').encode('ascii','ignore')+calefaccion+u'millones'
+    linea4=u' '.join(lineas[1:2]).decode('unicode_escape').encode('ascii','ignore')
 
     # Obtener datos de desempleo de googlesheet
     sht1 = gc.open_by_key(app.config['SPREADSHEET_ID'])
