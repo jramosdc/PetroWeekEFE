@@ -61,10 +61,8 @@ def index():
     wtiprice = worksheet3.acell('D2').value
     wtivariation = worksheet3.acell('E2').value
     linea4b= u' to a total of {} millions.'.format(calefaccion)
-    search = [i for i,x in enumerate(words) if x == 'Distillate']
-    position1= search[2]
-    position2=position+10
-    frase12= words[position1:position2]
+   
+    frase12= words[248:258]
     linea4= u' '.join(frase12).decode('unicode_escape').encode('ascii','ignore')+linea4b
     linea6 = u'The total figure for oil reserves, including the Strategic Reserves, {} a total of {} million barrels, a {} percent change versus the previous week'.format(verb,totalreservasfino,reservaschange)
     linea7 = u'Right now, the price of the WTI Oil for {} is trading at {} dollars, a change of {} dollars'.format(month,wtiprice,wtivariation)
