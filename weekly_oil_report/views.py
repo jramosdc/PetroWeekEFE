@@ -21,7 +21,7 @@ from . import helpers
 # Views ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    text = helpers.convert('http://ir.eia.gov/wpsr/wpsrsummary.pdf').decode('unicode_escape').encode('ascii','ignore')
+    text = helpers.convert('http://ir.eia.gov/wpsr/wpsrsummary.pdf')
 
     if request.method == 'GET':
         return render_template('show.html', text=text)
