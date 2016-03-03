@@ -21,7 +21,7 @@ from . import helpers
 # Views ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    text = helpers.convert('http://ir.eia.gov/wpsr/wpsrsummary.pdf').decode('unicode_escape').encode('ascii','ignore')
+    text = helpers.convert('http://ir.eia.gov/wpsr/wpsrsummary.pdf').decode('unicode_escape')
 
     if request.method == 'GET':
         return render_template('show.html', text=text)
@@ -37,11 +37,11 @@ def index():
     tokenizer = nltk.data.load('nltk:tokenizers/punkt/english.pickle')
     lineas=tokenizer.tokenize(text)
     words = nltk.word_tokenize(text)
-    week= u' '.join(words[7:11]).decode('unicode_escape').encode('ascii','ignore')
-    linea1= u' '.join(lineas[8:10]+[', according to government data for the ']).decode('unicode_escape').encode('ascii','ignore')+week
-    linea2= u' '.join(lineas[4:6]).decode('unicode_escape').encode('ascii','ignore')
-    linea3= u' '.join(lineas[10:11]).decode('unicode_escape').encode('ascii','ignore')
-    linea5= u' '.join(lineas[1:2]).decode('unicode_escape').encode('ascii','ignore')
+    week= u' '.join(words[7:11])
+    linea1= u' '.join(lineas[8:10]+[', according to government data for the '])+week
+    linea2= u' '.join(lineas[4:6])
+    linea3= u' '.join(lineas[10:11])
+    linea5= u' '.join(lineas[1:2])
 
     # Obtener datos de desempleo de googlesheet
     sht1 = gc.open_by_key(app.config['SPREADSHEET_ID'])
@@ -59,8 +59,10 @@ def index():
     wtiprice = worksheet3.acell('D2').value
     wtivariation = worksheet3.acell('E2').value
     linea4b= u' to a total of {} millions.'.format(calefaccion)
-  
-    frase12= words[248:258]
+    search = [i for i,x in enumerate(words) if x == 'Distillate']
+    position= search[2]
+    position2=position+10
+    frase12=words[position:position2]
     linea4= u' '.join(frase12).decode('unicode_escape').encode('ascii','ignore')+linea4b
     linea6 = u'The total figure for oil reserves, including the Strategic Reserves, {} a total of {} million barrels, a {} percent change versus the previous week'.format(verb,totalreservasfino,reservaschange)
     linea7 = u'Right now, the price of the WTI Oil for {} is trading at {} dollars, a change of {} dollars'.format(month,wtiprice,wtivariation)
