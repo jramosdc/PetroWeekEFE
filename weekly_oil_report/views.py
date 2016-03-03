@@ -21,7 +21,7 @@ from . import helpers
 # Views ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    text = helpers.convert('http://ir.eia.gov/wpsr/wpsrsummary.pdf')
+    text = helpers.convert('http://ir.eia.gov/wpsr/wpsrsummary.pdf').decode('unicode_escape').encode('ascii','ignore')
 
     if request.method == 'GET':
         return render_template('show.html', text=text)
@@ -61,8 +61,7 @@ def index():
     wtiprice = worksheet3.acell('D2').value
     wtivariation = worksheet3.acell('E2').value
     linea4b= u' to a total of {} millions.'.format(calefaccion)
-    palabra= 'Distillate'
-    search = [i for i,x in enumerate(words) if x == palabra]
+    search = [i for i,x in enumerate(words) if x == 'Distillate']
     position1= search[2]
     position2=position+10
     frase12= words[position1:position2]
