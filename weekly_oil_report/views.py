@@ -37,8 +37,6 @@ def index():
     tokenizer = nltk.data.load('nltk:tokenizers/punkt/english.pickle')
     lineas=tokenizer.tokenize(text)
     words = nltk.word_tokenize(text)
-    linea12 = lineas[12:13]
-    linea12words = nltk.word_tokenize(linea12)
     week= u' '.join(words[7:11]).decode('unicode_escape').encode('ascii','ignore')
     linea1= u' '.join(lineas[8:10]+[', according to government data for the ']).decode('unicode_escape').encode('ascii','ignore')+week
     linea2= u' '.join(lineas[4:6]).decode('unicode_escape').encode('ascii','ignore')
