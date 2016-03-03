@@ -58,7 +58,8 @@ def index():
     month = calendar.month_name[mydate.month]
     wtiprice = worksheet3.acell('D2').value
     wtivariation = worksheet3.acell('E2').value
-    linea4= u' '.join(words[248:258]).decode('unicode_escape').encode('ascii','ignore')
+    linea4b= u' to a total of {} millions'.format(calefaccion)
+    linea4= u' '.join(words[248:258]).decode('unicode_escape').encode('ascii','ignore')+linea4b
     linea6 = u'The total figure for oil reserves, including the Strategic Reserves, {} a total of {} million barrels, a {} percent change versus the previous week'.format(verb,totalreservasfino,reservaschange)
     linea7 = u'Right now, the price of the WTI Oil for {} is trading at {} dollars, a change of {} dollars'.format(month,wtiprice,wtivariation)
     return render_template('show.html', **dict(
