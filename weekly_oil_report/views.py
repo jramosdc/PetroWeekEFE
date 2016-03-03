@@ -37,7 +37,6 @@ def index():
     tokenizer = nltk.data.load('nltk:tokenizers/punkt/english.pickle')
     lineas=tokenizer.tokenize(text)
     words = nltk.word_tokenize(text)
-    frase12 = nltk.word_tokenize(lineas[12:13])
     week= u' '.join(words[7:11]).decode('unicode_escape').encode('ascii','ignore')
     linea1= u' '.join(lineas[8:10]+[', according to government data for the ']).decode('unicode_escape').encode('ascii','ignore')+week
     linea2= u' '.join(lineas[4:6]).decode('unicode_escape').encode('ascii','ignore')
@@ -59,7 +58,7 @@ def index():
     month = calendar.month_name[mydate.month]
     wtiprice = worksheet3.acell('D2').value
     wtivariation = worksheet3.acell('E2').value
-    linea4= u' '.join(frase12[0:10]).decode('unicode_escape').encode('ascii','ignore')
+    linea4= u' '.join(words[160:170]).decode('unicode_escape').encode('ascii','ignore')
     linea6 = u'The total figure for oil reserves, including the Strategic Reserves, {} a total of {} million barrels, a {} percent change versus the previous week'.format(verb,totalreservasfino,reservaschange)
     linea7 = u'Right now, the price of the WTI Oil for {} is trading at {} dollars, a change of {} dollars'.format(month,wtiprice,wtivariation)
     return render_template('show.html', **dict(
