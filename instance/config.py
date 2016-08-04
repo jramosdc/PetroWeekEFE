@@ -8,7 +8,7 @@ configuración en el archivo `instance/config.py`
 
 # Configuration variables ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Flask ++++++++++++++++++++++++++++++++
-DEBUG = False
+DEBUG = True
 # ++++++++++++++++++++++++++++++++++++++
 # ++++++++++++++++++++++++++++++++++++++
 GS_AUTH = {
