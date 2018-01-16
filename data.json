@@ -50,7 +50,7 @@
       ]
     },
     {
-      "name": "Project",
+      "name": "Projects",
       "children": [
         {
           "name": "Customer Analytics",
@@ -118,7 +118,37 @@
           ]
         },
         {
-          "name": "Dissemination"
+          "name": "Dissemination",
+          "children": [
+            {
+              "name": "Juan Murillo",
+              "size": 100
+            },
+            {
+              "name": "Juan de Dios Romero",
+              "size": 50
+            },
+            {
+              "name": "Diego Bodas",
+              "size": 50
+            },
+            {
+              "name": "Iskra Velitchkova",
+              "size": 50
+            },
+            {
+              "name": "Beatriz Alonso",
+              "size": 50
+            },
+            {
+              "name": "Jairo Mejía",
+              "size": 50
+            },
+            {
+              "name": "Pedro Hernández",
+              "size": 50
+            }
+          ]
         }
       ]
     }
