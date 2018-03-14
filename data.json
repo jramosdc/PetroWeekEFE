@@ -1,156 +1,38 @@
 {
-  "name": "bbva data & analytics",
-  "children": [
-    {
-      "name": "Structure",
-      "children": [
-        {
-          "name": "coCEO",
-          "children": [
-            {
-              "name": "Jon Ander Beracoechea",
-              "size": 100
-            },
-            {
-              "name": "Fabien Girardin",
-              "size": 100
-            }
-          ]
-        },
-        {
-          "name": "Talent",
-          "children": [
-            {
-              "name": "Ana de Melo",
-              "size": 100
-            },
-            {
-              "name": "Ana Pombo",
-              "size": 50
-            },
-            {
-              "name": "Natalia López",
-              "size": 50
-            },
-            {
-              "name": "Isabel Lacasa",
-              "size": 50
-            }
-          ]
-        },
-        {
-          "name": "Admin and Finance",
-          "children": [
-            {
-              "name": "Pablo Gómez",
-              "size": 100
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Projects",
-      "children": [
-        {
-          "name": "Customer Analytics",
-          "children": [
-            {
-              "name": "Juan Carlos Plaza",
-              "size": 100
-            },
-            {
-              "name": "María Hernández",
-              "size": 50
-            }
-          ]
-        },
-        {
-          "name": "Tools",
-          "children": [
-            {
-              "name": "Carlos Hernández",
-              "size": 100
-            },
-            {
-              "name": "Alberto Marino",
-              "size": 100
-            }
-          ]
-        },
-        {
-          "name": "Risk and Fraud",
-          "children": [
-            {
-              "name": "Fco. Javier Peñalver",
-              "size": 100
-            },
-            {
-              "name": "Jordi Nin",
-              "size": 100
-            }
-          ]
-        },
-        {
-          "name": "Predictive Models",
-          "children": [
-            {
-              "name": "Teresa Correas",
-              "size": 100
-            },
-            {
-              "name": "José A. Rodríguez",
-              "size": 100
-            }
-          ]
-        },
-        {
-          "name": "Payments",
-          "children": [
-            {
-              "name": "Javier García",
-              "size": 100
-            },
-            {
-              "name": "Roberto Maestre",
-              "size": 50
-            }
-          ]
-        },
-        {
-          "name": "Dissemination",
-          "children": [
-            {
-              "name": "Juan Murillo",
-              "size": 100
-            },
-            {
-              "name": "Juan de Dios Romero",
-              "size": 50
-            },
-            {
-              "name": "Diego Bodas",
-              "size": 50
-            },
-            {
-              "name": "Iskra Velitchkova",
-              "size": 50
-            },
-            {
-              "name": "Beatriz Alonso",
-              "size": 50
-            },
-            {
-              "name": "Jairo Mejía",
-              "size": 50
-            },
-            {
-              "name": "Pedro Hernández",
-              "size": 50
-            }
-          ]
-        }
-      ]
-    }
+  "nodes": [
+    {"label": "input", "layer": 1, "activation": 10},
+    {"label": "", "layer": 1,"activation": 10},
+    {"label": "", "layer": 1,"activation": 10},
+    {"label": "hidden", "layer": 2,"activation": 15},
+      {"label": "", "layer": 2,"activation": 100},
+      {"label": "", "layer": 2,"activation": 100},
+      {"label": "", "layer": 2,"activation": 15},
+      {"label": "", "layer": 2,"activation": 50},
+      {"label": "", "layer": 2,"activation": 10},
+    {"label": "output", "layer": 3,"activation": 1},
+    {"label": "input", "layer": 4,"activation": 10},
+    {"label": "", "layer": 4,"activation": 10},
+    {"label": "", "layer": 4,"activation": 10},
+    {"label": "hidden", "layer": 5,"activation": 10},
+      {"label": "", "layer": 5,"activation": 10},
+      {"label": "", "layer": 5,"activation": 100},
+      {"label": "", "layer": 5,"activation": 10},
+      {"label": "", "layer": 5,"activation": 100},
+    {"label": "output", "layer": 6,"activation": 1},
+      {"label": "input", "layer": 7,"activation": 10},
+    {"label": "", "layer": 7,"activation": 10},
+    {"label": "", "layer": 7,"activation": 10},
+    {"label": "hidden", "layer": 8,"activation": 100},
+      {"label": "", "layer": 8,"activation": 10},
+      {"label": "", "layer": 8,"activation": 10},
+      {"label": "", "layer": 8,"activation": 100},
+      {"label": "", "layer":8,"activation": 100},
+      {"label": "hidden", "layer": 9,"activation": 10},
+      {"label": "", "layer": 9,"activation": 10},
+      {"label": "", "layer": 9,"activation": 10},
+      {"label": "", "layer": 9,"activation": 100},
+      {"label": "", "layer": 9,"activation": 10},
+    {"label": "fraud?", "layer": 10}
+   
   ]
 }
